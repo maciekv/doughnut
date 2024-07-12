@@ -1,0 +1,16 @@
+<svg height="160" width="160" viewBox="0 0 160 160">
+    <g *ngFor="let value of sortedValues; let index = index">
+      <circle 
+        [attr.cx]="cx" 
+        [attr.cy]="cy" 
+        [attr.r]="radius" 
+        [attr.stroke]="colors[index]" 
+        [attr.stroke-width]="strokeWidth" 
+        [attr.stroke-dasharray]="adjustedCircumference" 
+        [attr.stroke-dashoffset]="calculateStrokeDashOffset(value, circumference)" 
+        [attr.transform]="returnCircleTransformValue(index)" 
+        fill="transparent">
+      </circle>
+      <text [attr.x]="chartData[index]?.textX" [attr.y]="chartData[index]?.textY">{{ percentageLabel(value) }}</text>
+    </g>
+  </svg>
